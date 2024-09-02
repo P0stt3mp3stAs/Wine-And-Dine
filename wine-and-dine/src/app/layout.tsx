@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "../components/Navigation";
+import ConfigureAmplifyClientSide from "./amplify-cognito-config";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navigation />
-        <main>{children}</main>
-        </body>
+      <body className={`${inter.className} antialiased`}>
+        <>
+          <ConfigureAmplifyClientSide />
+          <Navigation />
+          <main>{children}</main>
+        </>
+      </body>
     </html>
   );
 }
